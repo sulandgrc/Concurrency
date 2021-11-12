@@ -16,7 +16,15 @@ public class WorkerClient {
 
         // Use join method so main waits until
         // worker t thread is finished
-        t.join(); // main thread is in waiting state
+        //t.join(); // main thread is in waiting state
+
+        // main thread prints out the sum
+        System.out.println(worker.getSum());
+
+        // main thread asks the worker thread to stop
+        // main thread wants to interrupt the worker thread
+        t.interrupt();
+
 
         // main thread prints out the sum
         System.out.println(worker.getSum());

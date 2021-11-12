@@ -10,8 +10,11 @@ public class WorkerThread implements Runnable{
 
     @Override
     public void run(){
-        for (int i = 0; i < MAX ; i++) {
+       // add in the check to see if this WorkerThread has been interrupted
+        for (int i = 0; i < MAX && !Thread.interrupted(); i++) {
             sum += i;
         }
+
+        System.out.println("Cleaning up now: " + sum);
     }
 }
